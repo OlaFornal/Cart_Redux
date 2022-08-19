@@ -1,17 +1,18 @@
-import "./App.css";
 import Cart from "./components/Cart/Cart";
-import Layout from "./components/Layout/Layout";
 import MainHeader from "./components/Layout/MainHeader";
 import Products from "./components/Shop/Products";
 import { useSelector } from "react-redux";
+import { Container } from "@mui/material";
 
 function App() {
   const showCart = useSelector((state) => state.ui.cartIsVisible);
   return (
     <>
       <MainHeader />
-      {showCart && <Cart />}
-      <Products />
+      <Container fixed>
+        {showCart && <Cart />}
+        <Products />
+      </Container>
     </>
   );
 }

@@ -20,17 +20,15 @@ const Products = () => {
   return (
     <section>
       <h2>Buy your favourite products</h2>
-      <ul>
-        {DUMMY_PRODUCTS.map((product) => (
-          <ProductItem
-            key={product.id}
-            id={product.id}
-            title={product.title}
-            price={product.price}
-            description={product.description}
-          />
-        ))}
-      </ul>
+      {DUMMY_PRODUCTS.map((product) => (
+        <ProductItem
+          key={product.id}
+          id={product.id}
+          title={product.title}
+          price={product.price}
+          description={product.description}
+        />
+      ))}
     </section>
   );
 };

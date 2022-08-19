@@ -1,6 +1,8 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../../store/cart-slice";
+import { Card, Grid, Typography } from "@mui/material";
+import { styled } from "@mui/material/styles";
 
 const CartItem = (props) => {
   const { title, quantity, total, price, id } = props.item;
@@ -20,24 +22,31 @@ const CartItem = (props) => {
     );
   };
 
+  const StyledCard = styled(Card)`
+    padding: 2%;
+    background: #ededed;
+    margin-bottom: 10px;
+  `;
+
   return (
-    <li>
-      <header>
-        <h3>{title}</h3>
+    <StyledCard>
+      <Grid container>
+        <Typography variant="h6">{title}</Typography>
         <div>
           ${total.toFixed(2)} <span>(${price.toFixed(2)}/item)</span>
         </div>
-      </header>
-      <div>
+
         <div>
-          x <span>{quantity} </span>
+          <div>
+            x <span>{quantity} </span>
+          </div>
         </div>
-      </div>
-      <div>
-        <button onClick={removeItemHandler}>-</button>
-        <button onClick={addItemHandler}>+</button>
-      </div>
-    </li>
+        <div>
+          <button onClick={removeItemHandler}>-</button>
+          <button onClick={addItemHandler}>+</button>
+        </div>
+      </Grid>
+    </StyledCard>
   );
 };
 

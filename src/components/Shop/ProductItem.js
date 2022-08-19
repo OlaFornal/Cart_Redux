@@ -1,6 +1,9 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../../store/cart-slice";
+import { Card, Grid, Button, Typography } from "@mui/material";
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+import { styled } from "@mui/material/styles";
 
 const ProductItem = (props) => {
   const { title, price, description, id } = props;
@@ -16,19 +19,50 @@ const ProductItem = (props) => {
     );
   };
 
+  const StyledCard = styled(Card)`
+    padding: 2%;
+  `;
+
+  const StyledGrid = styled(Grid)`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  `;
+
+  const ButtonGrid = styled(Grid)`
+    display: flex;
+    justify-content: flex-end;
+  `;
+
+  const PriceCard = styled(Card)`
+    display: flex;
+    justify-content: center;
+  `;
   return (
-    <li>
-      <div>
-        <header>
-          <h3>{title}</h3>
-          <div>${price.toFixed(2)}</div>
-        </header>
-        <p>{description}</p>
-        <div>
-          <button onClick={addToCartHandler}>Add to Cart</button>
-        </div>
-      </div>
-    </li>
+    <StyledCard variant="outlined" style={{ margin: "0 0 10px 0" }}>
+      <StyledGrid container>
+        <Grid item xs={11}>
+          <Typography variant="h6">{title}</Typography>
+        </Grid>
+        <Grid item xs={1}>
+          <PriceCard>${price.toFixed(2)}</PriceCard>
+        </Grid>
+        <Grid item xs={12}>
+          <Typography>{description}</Typography>
+        </Grid>
+        <ButtonGrid item xs={12}>
+          <Button
+            startIcon={<AddShoppingCartIcon />}
+            variant="contained"
+            size="small"
+            color="primary"
+            onClick={addToCartHandler}
+          >
+            Add to Cart
+          </Button>
+        </ButtonGrid>
+      </StyledGrid>
+    </StyledCard>
   );
 };
 
