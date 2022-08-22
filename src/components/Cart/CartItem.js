@@ -37,13 +37,13 @@ const CartItem = (props) => {
   return (
     <StyledCard>
       <Grid container>
-        <Grid xs={7} md={9}>
+        <Grid item xs={7} md={9}>
           <Typography variant="h6">{title}</Typography>
         </Grid>
-        <Grid xs={2} md={1}>
+        <Grid item xs={2} md={1}>
           ${total.toFixed(2)}
         </Grid>
-        <Grid xs={3} md={2}>
+        <Grid item xs={3} md={2}>
           (${price.toFixed(2)}/item)
         </Grid>
 

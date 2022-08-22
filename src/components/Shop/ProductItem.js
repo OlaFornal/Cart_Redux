@@ -41,10 +41,10 @@ const ProductItem = (props) => {
   return (
     <StyledCard variant="outlined" style={{ margin: "0 0 10px 0" }}>
       <StyledGrid container>
-        <Grid item xs={11}>
+        <Grid item xs={10} md={11}>
           <Typography variant="h6">{title}</Typography>
         </Grid>
-        <Grid item xs={1}>
+        <Grid item xs={2} md={1}>
           <PriceCard>${price.toFixed(2)}</PriceCard>
         </Grid>
         <Grid item xs={12}>
