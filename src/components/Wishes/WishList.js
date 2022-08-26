@@ -60,8 +60,6 @@ const WishList = () => {
     setName("");
   }
 
-  console.log(wishes);
-
   return (
     <StyledCard variant="outlined" style={{ margin: "10px" }}>
       <form onSubmit={handleSubmit}>
